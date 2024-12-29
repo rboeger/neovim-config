@@ -12,7 +12,7 @@ set autoindent              " indent a new line the same amount as the line just
 set number                  " add line numbers
 set relativenumber
 set wildmode=longest,list   " get bash-like tab completions
-set scrolloff=8
+set scrolloff=15
 "set cc=80                  " set an 80 column border for good coding style
 filetype plugin indent on   "allow auto-indenting depending on file type
 syntax on                   " syntax highlighting
@@ -28,46 +28,34 @@ set termguicolors
 set wrap!
 set splitright
 set updatetime=0
-"let g:NERDTreeDirArrows = 0 
 
 " load all plugins using vim-plug
 call plug#begin("~/.vim/plugged")
- " Plugin Section
- Plug 'ryanoasis/vim-devicons'
- "Plug 'scrooloose/nerdtree'
- Plug 'preservim/nerdcommenter'
- "Plug 'mhinz/vim-startify'
-"" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"" Plug 'davidhalter/jedi'
- Plug 'catppuccin/nvim'
- Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
- Plug 'aurum77/live-server.nvim'
- Plug 'nvim-telescope/telescope.nvim'
- Plug 'nvim-lua/plenary.nvim'
- Plug 'rmagatti/auto-session'
-  Plug 'neovim/nvim-lspconfig'
-  Plug 'williamboman/mason.nvim'
-  Plug 'williamboman/mason-lspconfig.nvim'
-  Plug 'hrsh7th/nvim-cmp'
-  Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'L3MON4D3/LuaSnip'
-  Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v3.x'}
-  Plug 'simrat39/symbols-outline.nvim'
-  Plug 'windwp/nvim-autopairs'
-  Plug 'nvim-neo-tree/neo-tree.nvim'
-  Plug 'MunifTanjim/nui.nvim'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'preservim/nerdcommenter'
+    Plug 'catppuccin/nvim'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'aurum77/live-server.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'rmagatti/auto-session'
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'williamboman/mason.nvim'
+    Plug 'williamboman/mason-lspconfig.nvim'
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'L3MON4D3/LuaSnip'
+    Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v3.x'}
+    Plug 'windwp/nvim-autopairs'
+    Plug 'nvim-neo-tree/neo-tree.nvim'
+    Plug 'MunifTanjim/nui.nvim'
+    Plug 'HiPhish/rainbow-delimiters.nvim'
+    Plug 'hedyhli/outline.nvim'
+    Plug 'uga-rosa/ccc.nvim'
 call plug#end()
 
 lua require('init')
 colorscheme catppuccin 
-
-
-" remapping keys
-" go to definition using coc
-"nmap <silent> gd <Plug>(coc-definition)
-
-" toggle NERDTree
-"nmap <C-t> :NERDTreeToggle<CR>
 
 " toggle neotree
 nmap <C-t> :Neotree toggle<CR>
@@ -107,7 +95,8 @@ tnoremap <Esc> <C-\><C-n>
  nmap n nzz
  nmap * *zz
  
- noremap to :SymbolsOutline<CR>
+ "noremap to :SymbolsOutline<CR>
+ noremap to :Outline<CR>
  nmap fl :Telescope live_grep<CR>
 
  nmap cd :cd %:h<CR>
