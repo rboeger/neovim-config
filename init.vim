@@ -10,10 +10,8 @@ set expandtab               " converts tabs to white space
 set shiftwidth=4            " width for autoindents
 set autoindent              " indent a new line the same amount as the line just typed
 set number                  " add line numbers
-set relativenumber
 set wildmode=longest,list   " get bash-like tab completions
-set scrolloff=15
-"set cc=80                  " set an 80 column border for good coding style
+set scrolloff=15            " set borders on screen scrolling
 filetype plugin indent on   "allow auto-indenting depending on file type
 syntax on                   " syntax highlighting
 set mouse=a                 " enable mouse click
@@ -21,13 +19,15 @@ set clipboard=unnamedplus   " using system clipboard
 filetype plugin on
 set cursorline              " highlight current cursorline
 set ttyfast                 " Speed up scrolling in Vim
-" set spell                 " enable spell check (may need to download language package)
 set noswapfile            " disable creating swap file
-" set backupdir=~/.cache/vim " Directory to store backup files.
 set termguicolors
 set wrap!
 set splitright
 set updatetime=0
+autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2 " set html to have 2 space tab
+"set cc=80                  " set an 80 column border for good coding style
+"set backupdir=~/.cache/vim " Directory to store backup files.
+"set relativenumber
 
 " load all plugins using vim-plug
 call plug#begin("~/.vim/plugged")
@@ -91,11 +91,9 @@ tnoremap <Esc> <C-\><C-n>
  nmap J J_
  noremap gn :bn<CR>
  noremap gp :bp<CR>
- "noremap gd :vs<CR>*zz
  nmap n nzz
  nmap * *zz
  
- "noremap to :SymbolsOutline<CR>
  noremap to :Outline<CR>
  nmap fl :Telescope live_grep<CR>
 
