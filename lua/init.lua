@@ -6,4 +6,7 @@ require('neo-tree-settings')
 require("outline").setup({})
 require("nvim-autopairs").setup{}
 require("ccc").setup()
-
+require("nvim-surround").setup()
+require("lsp-signature-help")
+require("todo-comments").setup()
+--require("venv-selector-settings")

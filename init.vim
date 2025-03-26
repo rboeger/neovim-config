@@ -1,7 +1,7 @@
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching 
 set ignorecase              " case insensitive 
-set mouse=v                 " middle-click paste with 
+"set mouse=v                 " middle-click paste with 
 set hlsearch                " highlight search 
 set incsearch               " incremental search
 set tabstop=4               " number of columns occupied by a tab 
@@ -11,7 +11,7 @@ set shiftwidth=4            " width for autoindents
 set autoindent              " indent a new line the same amount as the line just typed
 set number                  " add line numbers
 set wildmode=longest,list   " get bash-like tab completions
-set scrolloff=15            " set borders on screen scrolling
+set scrolloff=10            " set borders on screen scrolling
 filetype plugin indent on   "allow auto-indenting depending on file type
 syntax on                   " syntax highlighting
 set mouse=a                 " enable mouse click
@@ -25,7 +25,9 @@ set wrap!
 set splitright
 set updatetime=0
 autocmd FileType html setlocal tabstop=2 shiftwidth=2 softtabstop=2 " set html to have 2 space tab
-"set cc=80                  " set an 80 column border for good coding style
+autocmd FileType py setlocal tabstop=4 shiftwidth=4 softtabstop=4 " set python to have 4 space tab
+autocmd FileType css setlocal tabstop=4 shiftwidth=4 softtabstop=4 " set css to have 4 space tab
+"set cc=100                  " set an 80 column border for good coding style
 "set backupdir=~/.cache/vim " Directory to store backup files.
 "set relativenumber
 
@@ -49,16 +51,23 @@ call plug#begin("~/.vim/plugged")
     Plug 'windwp/nvim-autopairs'
     Plug 'nvim-neo-tree/neo-tree.nvim'
     Plug 'MunifTanjim/nui.nvim'
-    Plug 'HiPhish/rainbow-delimiters.nvim'
     Plug 'hedyhli/outline.nvim'
     Plug 'uga-rosa/ccc.nvim'
+    Plug 'nvim-tree/nvim-web-devicons'
+    "Plug 'linux-cultist/venv-selector.nvim'
+    "Plug 'tell-k/vim-autopep8'
+    Plug 'github/copilot.vim'
+    Plug 'mechatroner/rainbow_csv' 
+    Plug 'kylechui/nvim-surround'
+    Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
+    Plug 'folke/todo-comments.nvim'
 call plug#end()
 
 lua require('init')
 colorscheme catppuccin 
 
 " toggle neotree
-nmap <C-t> :Neotree toggle<CR>
+nmap <C-e> :Neotree toggle<CR>
 nmap <C-b> :Neotree buffers<CR>
 
 " make it easier to move to splits
@@ -68,8 +77,12 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
 " open telescope
-nmap ff :Telescope find_files<CR>
-nmap fd :Telescope grep_string<CR>
+nmap <C-f>f :Telescope find_files<CR>
+nmap <C-f>d :Telescope grep_string<CR>
+nmap <C-f>l :Telescope live_grep<CR>
+nmap <C-f>b :Telescope buffers<CR>
+nmap <C-f>m :Telescope marks<CR>
+nmap <C-f>t :TodoTelescope<CR>
 
 " create new tab
 nmap tn :tabnew<CR>
@@ -89,12 +102,15 @@ tnoremap <Esc> <C-\><C-n>
  nmap <C-u> <C-u>zz
  nmap <C-d> <C-d>zz
  nmap J J_
- noremap gn :bn<CR>
- noremap gp :bp<CR>
+ "noremap gn :bn<CR>
+ "noremap gp :bp<CR>
  nmap n nzz
  nmap * *zz
  
  noremap to :Outline<CR>
- nmap fl :Telescope live_grep<CR>
 
  nmap cd :cd %:h<CR>
+
+" load vim config
+nmap <C-l>v :vs ~/.config/nvim/init.vim<CR>
+nmap <C-l>t :vs ~/.config/foot/foot.ini<CR>
