@@ -56,19 +56,25 @@ call plug#begin("~/.vim/plugged")
     Plug 'nvim-tree/nvim-web-devicons'
     "Plug 'linux-cultist/venv-selector.nvim'
     "Plug 'tell-k/vim-autopep8'
-    Plug 'github/copilot.vim'
+    "Plug 'github/copilot.vim'
     Plug 'mechatroner/rainbow_csv' 
     Plug 'kylechui/nvim-surround'
     Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
     Plug 'folke/todo-comments.nvim'
+    Plug 'hat0uma/csvview.nvim'
+    Plug 'akinsho/toggleterm.nvim'
+    Plug 'nvim-lualine/lualine.nvim'
+    Plug 'petertriho/nvim-scrollbar'
 call plug#end()
 
 lua require('init')
 colorscheme catppuccin 
 
 " toggle neotree
-nmap <C-e> :Neotree toggle<CR>
-nmap <C-b> :Neotree buffers<CR>
+nmap <C-t>e :Neotree toggle<CR>
+nmap <C-t>t :ToggleTerm<CR>
+nmap <C-t>d :lua vim.diagnostic.open_float()<CR>
+"nmap <C-b> :Neotree buffers<CR>
 
 " make it easier to move to splits
 nmap <C-h> <C-w>h
@@ -112,5 +118,5 @@ tnoremap <Esc> <C-\><C-n>
  nmap cd :cd %:h<CR>
 
 " load vim config
-nmap <C-l>v :vs ~/.config/nvim/init.vim<CR>
-nmap <C-l>t :vs ~/.config/foot/foot.ini<CR>
+nmap <C-e>v :vs ~/.config/nvim/init.vim<CR>
+nmap <C-e>t :vs ~/.config/foot/foot.ini<CR>
