@@ -11,8 +11,8 @@ set shiftwidth=4            " width for autoindents
 set autoindent              " indent a new line the same amount as the line just typed
 set number                  " add line numbers
 set wildmode=longest,list   " get bash-like tab completions
-set scrolloff=10            " set borders on screen scrolling
-filetype plugin indent on   "allow auto-indenting depending on file type
+"set scrolloff=10            " set borders on screen scrolling
+filetype plugin indent on   " allow auto-indenting depending on file type
 syntax on                   " syntax highlighting
 set mouse=a                 " enable mouse click
 set clipboard=unnamedplus   " using system clipboard
@@ -65,15 +65,16 @@ call plug#begin("~/.vim/plugged")
     Plug 'akinsho/toggleterm.nvim'
     Plug 'nvim-lualine/lualine.nvim'
     Plug 'petertriho/nvim-scrollbar'
+    Plug 'lukas-reineke/indent-blankline.nvim'
 call plug#end()
 
 lua require('init')
 colorscheme catppuccin 
 
 " toggle neotree
-nmap <C-t>e :Neotree toggle<CR>
-nmap <C-t>t :ToggleTerm<CR>
-nmap <C-t>d :lua vim.diagnostic.open_float()<CR>
+nmap <C-e> :Neotree toggle<CR>
+nmap tt :ToggleTerm<CR>
+nmap td :lua vim.diagnostic.open_float()<CR>
 "nmap <C-b> :Neotree buffers<CR>
 
 " make it easier to move to splits
@@ -83,12 +84,12 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
 " open telescope
-nmap <C-f>f :Telescope find_files<CR>
-nmap <C-f>d :Telescope grep_string<CR>
-nmap <C-f>l :Telescope live_grep<CR>
-nmap <C-f>b :Telescope buffers<CR>
-nmap <C-f>m :Telescope marks<CR>
-nmap <C-f>t :TodoTelescope<CR>
+nmap <C-f> :Telescope find_files<CR>
+nmap td :Telescope grep_string<CR>
+nmap tl :Telescope live_grep<CR>
+nmap tb :Telescope buffers<CR>
+nmap tm :Telescope marks<CR>
+nmap <C-t> :TodoTelescope<CR>
 
 " create new tab
 nmap tn :tabnew<CR>
@@ -105,8 +106,8 @@ tnoremap <Esc> <C-\><C-n>
 " set esc to stop highlighting search
  noremap <esc> :noh<CR>
 
- nmap <C-u> <C-u>zz
- nmap <C-d> <C-d>zz
+ "nmap <C-u> <C-u>zz
+ "nmap <C-d> <C-d>zz
  nmap J J_
  "noremap gn :bn<CR>
  "noremap gp :bp<CR>
@@ -118,5 +119,5 @@ tnoremap <Esc> <C-\><C-n>
  nmap cd :cd %:h<CR>
 
 " load vim config
-nmap <C-e>v :vs ~/.config/nvim/init.vim<CR>
-nmap <C-e>t :vs ~/.config/foot/foot.ini<CR>
+nmap tev :vs ~/.config/nvim/init.vim<CR>
+nmap tet :vs ~/.config/foot/foot.ini<CR>
