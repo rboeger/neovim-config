@@ -13,4 +13,9 @@ require("csvview").setup()
 require("toggleterm").setup()
 require("scrollbar").setup()
 require("lualine").setup()
+require("ibl").setup({
+    scope = {
+        enabled = false
+    }
+})
 --require("venv-selector-settings")
