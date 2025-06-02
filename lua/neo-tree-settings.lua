@@ -1,5 +1,5 @@
 require("neo-tree").setup({
-    --window = {
-        --position = 'float';
-    --}
+    window = {
+        position = 'float';
+    }
 })
