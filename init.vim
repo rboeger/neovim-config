@@ -66,6 +66,7 @@ call plug#begin("~/.vim/plugged")
     Plug 'nvim-lualine/lualine.nvim'
     Plug 'petertriho/nvim-scrollbar'
     Plug 'lukas-reineke/indent-blankline.nvim'
+    Plug 'iamcco/markdown-preview.nvim'
 call plug#end()
 
 lua require('init')
